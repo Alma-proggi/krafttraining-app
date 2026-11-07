@@ -34,6 +34,19 @@ Fotos: 3 Katzen (Bengal, schwarz, grau), alle frontal bzw. von oben, keine Seite
 Schätzwerte; echte Größen werden beim ersten Build gemessen und hier nachgetragen.
 Verteilung der Katzen: feste, ausgeglichene Zuordnung (einmal mischen, reihum; neue Übung → Katze mit den wenigsten Übungen).
 
+### ADR-005 Nachtrag 2 (07.11.2026): Messwerte der Beispiele
+Code-Zeichnung (Option 2) und Foto-Ausschnitt (Option 1) gebaut und von Alexandra verworfen (Optik ungenügend).
+KI-Bild von ChatGPT (Flori, fotorealistisch, 3 Phasen) auf 416-px-Display getestet, gemessen:
+
+| Variante | je Bild | je Übung (3 Bilder) | 29 Übungen |
+|---|---|---|---|
+| 200 px, 64 Farben | ~10,3 KB | ~31 KB | ~900 KB |
+| 200 px, 256 Farben | ~15 KB | ~45 KB | ~1,3 MB |
+| 240 px, 64 Farben | ~14 KB | ~42 KB | ~1,2 MB |
+| 240 px, 256 Farben | ~21 KB | ~62 KB | ~1,8 MB |
+
+Mit 2 Bildern pro Übung (unten/oben) ein Drittel weniger, Standbild ein Drittel davon. App-Größenlimit der fēnix 9 bei SDK-Installation prüfen.
+
 ## ADR-006 – Web-App als Home-Assistant-App auf dem NUC, Updates über GitHub (07.11.2026)
 - **Entscheidung:** Web-App läuft als eigene Home-Assistant-App (`krafttraining/`): Python-Server ohne Zusatzpakete, Daten in SQLite im App-Datenordner, Aufruf über die HA-Seitenleiste (Ingress). Dieses öffentliche Repo ist als App-Repository in HA eingetragen; Updates per Klick.
 - **Warum:** Fernzugriff sofort über Nabu Casa, Anmeldung über HA, Daten in HA-Backups, kein offener Port, wenig Wartung, erweiterbar (später Uhr-Abgleich REQ-202 über HA-Webhook).
