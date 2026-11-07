@@ -7,3 +7,5 @@ assets/katzen/*.heic
 assets/katzen/*.png
 .DS_Store
 __pycache__/
+# Klickdummy enthält echte Trainingsdaten, bleibt privat (Entscheidung 07.11.2026)
+uhr-app/klickdummy/
