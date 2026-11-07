@@ -1,0 +1,9 @@
+# persoenliche Daten nie ins Repo
+daten/
+*.csv
+assets/katzen/*.jpg
+assets/katzen/*.jpeg
+assets/katzen/*.heic
+assets/katzen/*.png
+.DS_Store
+__pycache__/

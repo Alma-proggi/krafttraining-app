@@ -1,0 +1,14 @@
+name: Krafttraining
+version: "1.0.0"
+slug: krafttraining
+description: Web-App für Krafttraining (Verlauf, 1RM, Übungen) mit eigenem Datenspeicher
+arch:
+  - amd64
+  - aarch64
+init: false
+startup: application
+boot: auto
+ingress: true
+ingress_port: 8099
+panel_icon: mdi:dumbbell
+panel_title: Krafttraining
