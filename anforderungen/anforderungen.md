@@ -15,6 +15,8 @@ Herkunft aller Einträge: Vorgaben von Alexandra, 07.11.2026.
 | REQ-008 | Jede Übung hat eine Animation auf der Uhr: eine von Alexandras drei Katzen führt die Übung aus (Fotos liefert Alexandra), möglichst platzsparend – 07.11.2026 | offen, Weg siehe ADR-005 |
 | REQ-007 | Bei der Übungsauswahl schlägt die Uhr anhand des Trainingsverlaufs die meistgenutzten/passendsten Übungen vor | in Arbeit (Logik als Vorschau in der Web-App) |
 | REQ-009 | Für die Uhr-App zuerst einen Klickdummy erstellen, der bis zum ersten echten Build als Vorlage dient – 07.11.2026 | umgesetzt (uhr-app/klickdummy, Artifact) |
+| REQ-010 | Cardio-Einheiten (z. B. 20 min Ergometer, Laufband) sind wie Kraftübungen auswählbar und werden mit Dauer erfasst – 07.11.2026 | offen, Weg siehe ADR-007 |
+| REQ-011 | Kraft und Cardio in einem Gym-Besuch ohne App-Wechsel; in Garmin Connect möglichst als Multisport mit passender Sportart je Teil – 07.11.2026 | offen, Machbarkeit siehe ADR-007 |
 
 ## Web-App (oder iOS/macOS)
 

@@ -53,3 +53,25 @@ Mit 2 Bildern pro Übung (unten/oben) ein Drittel weniger, Standbild ein Drittel
 - **Verworfen:** eigener Docker-Dienst mit eigener Domain (unter HA OS nur über Umwege, mehr Wartung); Samba-Kopie (jedes Update manuell); privates Repo (GitHub-Schlüssel in HA, läuft ab).
 - **Datenschutz:** Persönliche Daten (Strong-CSV, Katzenfotos) sind per `.gitignore` ausgeschlossen; Trainingsdaten liegen nur auf dem NUC.
 - **Homescreen (REQ-107):** Empfehlung iOS-Kurzbefehl, der die HA-App auf „Krafttraining“ öffnet.
+
+## ADR-007 – Cardio-Übungen und Garmin-Aufzeichnung (Vorschlag, Entscheidung offen, 07.11.2026)
+- **Machbarkeit (Connect IQ):**
+  - Eine Connect-IQ-App zeichnet pro Sitzung genau eine Sportart auf. Echtes Multisport (mehrere Sportarten in einer FIT-Datei) und der Garmin-Menüpunkt „Sportart wechseln“ stehen Drittanbieter-Apps nicht offen. Quelle: [Garmin-Entwicklerforum](https://forums.garmin.com/developer/connect-iq/f/discussion/330148/are-multisport-apps-reserved-for-garmin-only).
+  - Native Kraft-Sätze (Übung, Wiederholungen, Gewicht in der Garmin-Connect-Satzansicht) kann eine Connect-IQ-App nicht schreiben. Möglich sind nur eigene Datenfelder, die Connect separat anzeigt. Quelle: [Garmin-Entwicklerforum](https://forums.garmin.com/developer/connect-iq/f/discussion/441539/has-anyone-been-able-to-map-strength-exercises-to-garmin-connect/2055031).
+  - Die Sätze landen deshalb vollständig nur in der eigenen Web-App (REQ-202).
+- **Option A – eine Sitzung „Krafttraining“ für alles:** Am einfachsten, aber Laufband und Ergometer zählen bei Garmin als Kraft (keine Distanz, falsche Trainingswirkung).
+- **Option B (Empfehlung) – automatischer Sitzungswechsel in der App:** Jede Übung hat eine Garmin-Sportart (Zuordnungstabelle). Folgen Übungen derselben Sportart aufeinander, bleibt die Sitzung offen. Wechselt die Sportart, speichert die App die laufende Sitzung und startet sofort die nächste, ohne Bedienung. In Garmin Connect erscheinen zwei oder mehr Einzelaktivitäten mit korrekter Sportart, Puls und Kalorien, aber kein Multisport-Eintrag.
+- **Option C – Garmins eigene Multisport-Aktivität (Kraft + Laufband):** Echtes Multisport, aber dann ohne die eigene App, also ohne Vorbelegung, Vorschläge und Katzen. REQ-004, REQ-007 und REQ-008 entfallen.
+- **Zuordnungstabelle (Vorschlag):**
+
+| Übung | Garmin-Sportart (FIT sport / sub_sport) |
+|---|---|
+| alle Kraftübungen | training / strength_training |
+| Laufband | running / treadmill |
+| Fahrrad-Ergometer | cycling / indoor_cycling |
+| Rudergerät | rowing / indoor_rowing |
+| Crosstrainer | fitness_equipment / elliptical |
+| Stepper | fitness_equipment / stair_climbing |
+
+- **Erfassung Cardio in der Uhr:** Start/Stopp mit laufender Zeit und Puls, optional Zielzeit (z. B. 20 min mit Vibration), optional Stufe oder Distanz per Hoch/Runter. Vorbelegung wie bei Kraft mit den Werten vom letzten Mal.
+
